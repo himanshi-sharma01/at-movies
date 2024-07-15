@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Movie } from '../movie.model'; 
 
 @Component({
   selector: 'app-movie-list',
@@ -12,15 +13,15 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  movies: any[] = [];
-  filteredMovies: any[] = [];
+  movies: Movie[] = [];
+  filteredMovies: Movie[] = [];
   searchKeyword: string = '';
   searchYearVar: string = '';
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-    this.http.get<any[]>('/movies').subscribe(data => {
+    this.http.get<Movie[]>('/movies').subscribe(data => {
       this.movies = data;
       this.filteredMovies = data;
     });
@@ -41,11 +42,11 @@ export class MovieListComponent implements OnInit {
     this.search();
   }
 
-  formatCurrency(budget: string): string {
+  formatCurrency(budget: number): string {
     return `$${budget} million`;
   }
 
-  formatDuration(duration: string): string {
+  formatDuration(duration: number): string {
     return `${duration} minutes`;
   }
 

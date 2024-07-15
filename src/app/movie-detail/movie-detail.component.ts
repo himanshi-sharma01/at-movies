@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Movie } from '../movie.model'; 
 
 @Component({
   selector: 'app-movie-detail',
@@ -11,15 +12,17 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./movie-detail.component.css']
 })
 export class MovieDetailComponent implements OnInit {
-  movie: any;
+  movie: Movie | null = null;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.http.get<any>(`/movies/${id}`).subscribe(data => {
-      this.movie = data;
-    });
+    if (id) {
+      this.http.get<Movie>(`/movies/${id}`).subscribe(data => {
+        this.movie = data;
+      });
+    }
   }
   
   goBack() {
