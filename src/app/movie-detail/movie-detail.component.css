@@ -1,0 +1,43 @@
+.btn-secondary {
+    background-color: #E5E9F1;
+    border-color: #E5E9F1;
+  }
+  
+  .btn-secondary:hover {
+    background-color: darkgrey;
+    border-color: darkgrey;
+  }
+  
+  .img-fluid {
+    height: 250px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(18, 17, 17, 0.9) !important;
+  }
+  
+  .container {
+    width: 800px;
+  }
+  
+  .main {
+    align-items: center;
+  }
+  
+  
+  .text-left {
+    text-align: left;
+    align-items: left;
+  }
+  
+  .details-header {
+    text-align: right;
+    font-weight: bold;
+    background-color: #f0f0f0;
+  }
+  
+  th.details-header {
+    width: 195px;
+  }
+  
+  .custom-btn {
+    color: black;
+  }

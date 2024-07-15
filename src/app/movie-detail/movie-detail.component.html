@@ -1,0 +1,67 @@
+<div class="container">
+    <div *ngIf="movie">
+        <nav class="navbar navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">
+                    <button class="btn btn-secondary custom-btn" (click)="goBack()">
+                        <i class="bi bi-8-circle-fill"></i> Home
+                    </button>
+                </a>
+            </div>
+        </nav>
+
+
+        <div class="container mt-4">
+
+            <div class="row align-items-center mb-4">
+
+                <div class="col text-left">
+                    <h2>{{ movie.title }}</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 mb-6 ">
+                    <img src="{{movie.poster}}" alt="{{ movie.title }} Poster" class="img-fluid rounded">
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="mb-2">
+                        <p><strong>Summary:</strong> {{ movie.summary }}</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-center">Details</h4>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th class="details-header ">Box Office</th>
+                                <td class="text-left">{{movie.box_office}}</td>
+                            </tr>
+                            <tr>
+                                <th class="details-header ">Budget</th>
+                                <td class="text-left">{{movie.budget}}</td>
+                            </tr>
+                            <tr>
+                                <th class="details-header ">Duration</th>
+                                <td class="text-left">{{movie.duration}}</td>
+                            </tr>
+                            <tr>
+                                <th class="details-header">Producers</th>
+                                <td class="text-left">{{ movie.producers?.join(', ') }}</td>
+                            </tr>
+                            <tr>
+                                <th class="details-header ">Cinematographers</th>
+                                <td class="text-left">{{ movie.cinematographers?.join(', ') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="outer mb-4">
+                <div class="inner">
+                    <h5>Filter</h5>
+                    <label>Title</label>&nbsp;
+                    <input type="text" [(ngModel)]="searchKeyword" (input)="search()">&nbsp;
+                    <label>Release year</label>&nbsp;
+                    <input type="number" [(ngModel)]="searchYearVar" (ngModelChange)="searchYear()">
+                </div>
+            </div>
+            <ul class="list-group mb-4">
+                <li *ngFor="let movie of filteredMovies"
+                    class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="movie-details">
+                        <h5>{{ movie.title }}</h5>
+                        <p>{{ movie.release_date | date:'mediumDate' }} - Budget: {{ formatCurrency(movie.budget) }} -
+                            Duration: {{ formatDuration(movie.duration) }}</p>
+                    </div>
+                    <button class="btn btn-primary" (click)="onSelectMovie(movie.id)">Details</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
